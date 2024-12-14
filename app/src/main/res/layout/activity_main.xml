@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="16dp">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wake on LAN"
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="16dp"
+        android:fontFamily="@font/heiti"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <LinearLayout
+        android:id="@+id/input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/title"
+        android:padding="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="远程设备地址"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/remote_device_ip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入ip"
+            android:inputType="textUri"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MAC地址"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/remote_device_mac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入MAC地址,用-分割"
+            android:inputType="text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="端口号"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/remote_device_port"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入端口号"
+            android:inputType="number"/>
+
+        <CheckBox
+            android:id="@+id/connectivity_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试连通性(TCP)" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/input_layout"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ProgressBar
+            android:id="@+id/status_circle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:indeterminate="true"
+            android:visibility="invisible"            style="?android:attr/progressBarStyleLarge"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:id="@+id/status_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设备状态: 未知"
+            android:textSize="18sp"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/open_pc_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="远程开机"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>
